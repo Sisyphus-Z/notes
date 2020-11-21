@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+
+
+    <link rel="stylesheet" href="tample.css" />
+
+
+    <!--<style type="text/css"></style>-->
+    <!--在 HTML5 中, type 属性不再是必须的。默认值为 "text/css"。-->
+    <style>
+   	.c1{color:red}
+   	.c2{color:green}
+   	#i1{color:rgb(0,0,200)}
+    </style>
+    
+
+</head>
+
+
+<body>
+
+
+
+<div class="c1" id="xxx"  >这是div .c1</div>
+<div class="c2">这是div .c2</div>
+<div id="i1"  >这是div #i1</div>
+<p>这是一个段落</p>
+
+
+
+
+<!--绑定函数-->
+<input onclick="myAlert()" type="button" value="点击我，弹出警告框" />
+<script type="text/javascript">
+    function myAlert(){
+        alert("谢谢支持");
+    }
+</script>
+<!--或者-->
+<!--<input onclick="alert('谢谢支持')" type="button" value="点击我，弹出警告框" />-->
+
+
+<!--绑定函数-->
+<input id="demo" type="button" value="点击我，显示 type 属性" />
+<script type="text/javascript">
+    document.getElementById("demo").onclick=function(){
+        alert(this.getAttribute("type"));
+    }
+</script>
+
+
+<!--<script></script>既可以实现内嵌 JS 代码，也可以实现引入外部的 JS 文件，但是只能二选一。-->
+<script type="text/javascript" src="temple.js"></script>
+
+<!--js的dom操作-->
+<script>
+var p1 = document.getElementsByClassName("c1")[0];
+p1.setAttribute("id","你好");
+
+var p2 = document.getElementsByClassName("c2")[0];
+p2.onclick=temple1
+
+</script>
+
+<!--<script></script>既可以实现内嵌 JS 代码，也可以实现引入外部的 JS 文件，但是只能二选一。-->
+
+</body>
+</html>

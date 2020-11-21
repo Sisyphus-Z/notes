@@ -1,0 +1,29 @@
+create database xxx character set utf8;
+show create database xxx;
+drop database xxx;
+create table xxx (xxx int primary key auto_increment,xxx varchar(32) not null);
+
+insert into xxx values(xxx,xxx),(xxx,xxx);
+insert into xxx(xxx,xxx) values(xxx,xxx);
+
+update xxx set xxx=xxx where xxx=xxx;
+
+delete from xxx where xxx=xxx;
+
+alter table xxx add xxx xxx after xxx;
+
+alter table xxx表名 drop xxx字段名;
+
+alter table xxx表名 modify xxx字段名 xxx新数据类型;
+
+alter table xxx表名 change xxx旧字段名 xxx新字段名 xxx新数据类型;
+
+alter table xxx表名 rename xxx新表名;
+
+SELECT xxxexpression1, xxxexpression2, xxxexpression_n
+FROM xxxtables
+[WHERE conditions]
+UNION xxx[ALL | DISTINCT]
+SELECT xxxexpression1, xxxexpression2,expression_n
+FROM xxx
+[WHERE conditions];
