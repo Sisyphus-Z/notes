@@ -1,0 +1,4 @@
+存储在浏览器：
+window.localStorage.setItem("lastname", "Smith");
+取：
+localStorage.getItem('dashop_token'))
