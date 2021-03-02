@@ -1,6 +1,9 @@
 net start mysql
 net start mysql80
 
+查看数据库存放文件位置
+show global variables like "%datadir%";
+
 source xxx路径/xxx.sql
 
 create database xxx character set utf8;
