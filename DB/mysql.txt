@@ -1,6 +1,8 @@
 net start mysql
 net start mysql80
 
+source xxx路径/xxx.sql
+
 create database xxx character set utf8;
 show create database xxx;
 drop database xxx;
