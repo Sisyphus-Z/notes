@@ -1,0 +1,13 @@
+aaa
+
+id name value
+1  a        11
+2  a        10
+3  b        1
+4  b        2
+
+select sum(value),id from aaa group by name;
+
+sum(value) id
+21              1
+3                3
