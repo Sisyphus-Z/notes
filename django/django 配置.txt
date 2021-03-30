@@ -34,8 +34,8 @@ python manage.py migrate
 from django.conf.urls import url ,include
 urlpatterns = [
     .......,
-    url('',include('xxxapp.urls'))
-
+    url('',include('xxxapp.urls')),
+    url('xxx/',include('xxxapp.urls')),
 ]
 
 新建urls.py
