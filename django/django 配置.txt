@@ -30,3 +30,8 @@ pymysql.install_as_MySQLdb()
 
 python manage.py makemigrations
 python manage.py migrate
+
+
+
+如果已有数据表，但是没有写入到models.py中，可以运行：python manage.py inspectdb > app名/models.py将现有数据表在models中建模
+这样就可以使用django model相关有方法对表进行读取了
