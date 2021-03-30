@@ -1,4 +1,4 @@
-python manage.py startproject xxx
+django-admin startproject xxx
 python manage.py startapp xxx
 
 INSTALLED_APPS = [
