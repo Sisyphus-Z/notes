@@ -1,0 +1,32 @@
+python manage.py startproject xxx
+python manage.py startapp xxx
+
+INSTALLED_APPS = [
+... ...,
+'xxx'
+]
+
+pip install pymysql
+
+create database xxx default charset utf8
+
+DATABASES = {
+    'default' : {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'xxx',
+        # 数据库名 称,需要自己定义
+        'USER': 'xxx',
+        'PASSWORD': 'xxx',        
+        'HOST': '127.0.0.1',
+        'PORT': 3306,
+    }
+}
+
+
+总目录的 __init__.py 添加：
+import pymysql
+pymysql.install_as_MySQLdb()
+
+
+python manage.py makemigrations
+python manage.py migrate
