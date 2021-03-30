@@ -31,6 +31,21 @@ pymysql.install_as_MySQLdb()
 python manage.py makemigrations
 python manage.py migrate
 
+from django.conf.urls import url ,include
+urlpatterns = [
+    .......,
+    url('',include('xxxapp.urls'))
+
+]
+
+
+from django.conf.urls import url,include
+from .views import *
+urlpatterns = [
+    url(r'^index$',index_views),
+    url(r'^map$',map_views)
+
+]
 
 
 如果已有数据表，但是没有写入到models.py中，可以运行：python manage.py inspectdb > app名/models.py将现有数据表在models中建模
