@@ -35,3 +35,7 @@ UNION xxx[ALL | DISTINCT]
 SELECT xxxexpression1, xxxexpression2,expression_n
 FROM xxx
 [WHERE conditions];
+
+
+导入sql文件：
+source sql文件的路径
