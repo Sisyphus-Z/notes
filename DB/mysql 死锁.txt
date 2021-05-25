@@ -1,0 +1,68 @@
+创建表
+
+CREATE TABLE `test1` (
+
+`id` int(11) NOT NULL AUTO_INCREMENT,
+
+`name` varchar(10) NOT NULL,
+
+PRIMARY KEY (`id`)
+
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8
+
+终端1
+
+--T1时刻
+
+BEGIN;
+
+--行级锁 id=1 的记录
+
+select * from test1 where id=1 for update ;
+
+--T3时刻
+
+--更新 id=2 的记录
+
+update test1 set id=id where id=2;
+
+终端2
+
+--T2时刻
+
+BEGIN;
+
+--行级锁 id=2 的记录
+
+select * from test1 where id=2 for update ;
+
+--T4时刻
+
+--更新 id=1 的记录
+
+update test1 set id=id where id=1;
+
+运行结果
+
+update test1 set id=id where id=1
+
+> 1213 - Deadlock found when trying to get lock; try restarting transaction
+
+> 时间: 0.002s
+
+分析
+
+终端一在T1时刻 test1 表的id=1的记录加了排它锁
+
+终端二在T2时刻 test1 表的id=2的记录加了排它锁
+
+终端一在T3时刻要去更新test1表中id=2的记录，此时该行记录已经加了排它锁，无法进行更新操作，需要等待锁释放
+
+终端二在T4时刻要去更新test1表中id=1的记录，此时该行记录已经加了排它锁，无法进行更新操作，需要等待锁释放
+
+.....
+
+这两个事务相互等待对方的排它锁释放，如此出现了死锁
+————————————————
+版权声明：本文为CSDN博主「张鹤臣」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/weixin_29231221/article/details/113460293
